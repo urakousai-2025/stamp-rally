@@ -1,47 +1,67 @@
+/* 基本設定 */
 body {
   font-family: sans-serif;
-  margin: 10px;
+  margin: 15px;
   padding: 0;
   text-align: center;
+  font-size: 1.4em; /* 全体の文字を大きく */
 }
 
+/* 見出し */
 h1 {
-  font-size: 2em;
-  margin-bottom: 0.5em;
+  font-size: 2.5em; /* 大きめに */
+  margin-bottom: 0.8em;
 }
 
+/* 説明文 */
 p {
-  font-size: 1.2em;
-  margin: 0.5em 0;
+  font-size: 1.5em; /* 文字を大きく */
+  margin: 0.8em 0;
+  line-height: 1.6em;
 }
 
+/* ボタン */
 button {
-  font-size: 1.2em;
-  padding: 10px 20px;
-  margin-top: 10px;
-  border-radius: 5px;
+  font-size: 1.6em; /* タップしやすく */
+  padding: 15px 30px;
+  margin-top: 15px;
+  border-radius: 8px;
   background-color: #4CAF50;
   color: white;
   border: none;
 }
 
+/* 進捗表示 */
 #progress {
-  font-size: 1.2em;
-  margin-top: 20px;
+  font-size: 1.6em;
+  margin-top: 25px;
 }
 
+/* スタンプ */
 .stamp {
   display: inline-block;
-  width: 40px;
-  height: 40px;
-  margin: 5px;
+  width: 50px; /* 少し大きく */
+  height: 50px;
+  margin: 8px;
   border-radius: 50%;
   border: 2px solid #333;
-  line-height: 40px;
+  line-height: 50px;
   vertical-align: middle;
+  font-size: 1.2em;
 }
 
 .stamp.done {
   background-color: #f00;
   color: white;
 }
+
+/* 入力欄 */
+input[type="text"] {
+  font-size: 1.4em;
+  padding: 8px;
+  margin-top: 10px;
+  width: 80%; /* スマホ画面幅に合わせる */
+  max-width: 300px;
+  box-sizing: border-box;
+}
+
