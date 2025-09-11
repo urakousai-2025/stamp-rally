@@ -1,27 +1,42 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>スタンプラリー</title>
+<meta charset="UTF-8">
+<title>スタンプラリーへようこそ</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>スタンプラリー</h1>
-  <div id="progress"></div>
+<h1>文化祭スタンプラリー</h1>
+<p>スマホで各スポットのQRを読み取り、全てのスタンプを集めよう！</p>
 
-  <script>
-    const spots = ['spot1','spot2','spot3','spot4','spot5','spot6','spot7','spot8'];
-    const cookies = document.cookie.split('; ').reduce((acc, v) => {
-      const [key, val] = v.split('=');
-      acc[key] = val;
-      return acc;
-    }, {});
-    const collected = spots.filter(s => cookies[s] === 'done');
-    document.getElementById('progress').textContent =
-      `現在 ${collected.length}/${spots.length} 個 集めました`;
-    if (collected.length === spots.length) {
-      document.body.insertAdjacentHTML('beforeend',
-        '<p>コンプリート！景品交換場所に行こう！</p>');
-    }
-  </script>
+<div id="progress"></div>
+<div id="stamps"></div>
+
+<script>
+const spots = ['spot1','spot2','spot3','spot4','spot5','spot6','spot7','spot8'];
+const cookies = document.cookie.split('; ').reduce((acc, v) => {
+  const [key, val] = v.split('=');
+  acc[key] = val;
+  return acc;
+}, {});
+const collected = spots.filter(s => cookies[s] === 'done');
+
+document.getElementById('progress').textContent =
+  `現在 ${collected.length}/${spots.length} 個 集めました`;
+
+const stampsDiv = document.getElementById('stamps');
+spots.forEach(s => {
+  const div = document.createElement('div');
+  div.className = 'stamp' + (cookies[s] === 'done' ? ' done' : '');
+  div.textContent = cookies[s] === 'done' ? '✓' : '';
+  stampsDiv.appendChild(div);
+});
+
+if (collected.length === spots.length) {
+  const msg = document.createElement('p');
+  msg.textContent = 'コンプリート！景品交換場所に行こう！';
+  document.body.appendChild(msg);
+}
+</script>
 </body>
 </html>
