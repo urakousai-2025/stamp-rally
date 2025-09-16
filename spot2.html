@@ -1,1 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>スポット2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css?v=1">
+</head>
+<body>
+<h1>スポット2</h1>
+<p>問題　体育館（例: 体育館）</p>
+<input id="answer" type="text" placeholder="答えを入力">
+<br>
+<button onclick="checkAnswer()">送信</button>
 
+<script>
+function checkAnswer() {
+  const ans = document.getElementById('answer').value.trim();
+  if (ans === '体育館') { // 正解を設定
+    document.cookie = 'spot2=done; path=/;';
+    alert('スタンプ獲得！');
+    window.location.href = './index.html';
+  } else {
+    alert('残念！もう一度挑戦');
+  }
+}
+</script>
+</body>
+</html>
